@@ -1,0 +1,85 @@
+\chapter{章标题}
+\section{节标题}
+
+\subsection{子节标题}
+%插图图
+% \begin{figure}[htbp]
+% \centering
+% \includegraphics[width=0.65\textwidth]{bloomfilter}
+% \caption{布隆过滤器}\label{fig:bf}
+% \end{figure}
+
+%定义
+\begin{definition}
+	假阳性(false positives)也叫误判是指当前元素不在集合内，但由于哈希冲突的缘故存在其它元素被映射到部分相同bit位上，从而有一定的概率导致在判定该元素时认定其对应的所有位置都为1，从而判定其在集合内，造成一次误判。这个概率本文称为误判率，误判率用\begin{math}\epsilon\end{math}表示。
+\end{definition}
+
+%公式
+% \begin{equation}
+% (1 - {1/2})^k = 2^{-ln2\cdot\frac{m}{n}} \thickapprox 0.62{m/n}
+% \end{equation}
+
+%表
+% \begin{table}[htbp]
+%   \centering
+%   \caption{相关符号及其含义}
+%   \label{tab:ckf_para}
+%   \begin{tabular}{cc}
+%     \toprule
+%       参数  & 含义  \\
+%     \midrule
+%       $\epsilon$  				&   误判率 \\
+%         f 							  &   指纹信息的长度(单位：bit)\\
+%       $\alpha$					  &   负载因子($0\leq\alpha\leq 1$) \\
+%     	b                   &   每个哈希桶内包含的实体的数量 \\
+%     	m 							    &	  哈希桶的数量 \\
+%     	n                   &   元素的数量 \\
+%       C 							    &   表达一个元素所需的平均位数(单位：bit)\\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+\subsection{加锁与解锁}
+接下来的内容介绍如何在论文中插入伪代码，仅供参考。
+\begin{algorithm}[htbp]
+\textbf{struct} \{\\
+        ~~~~mcs\_lock\_t    lock;\\
+        ~~~~\textbf{uint32\_t}    pad1[128/4 - sizeof(mcs\_lock\_t)];\\
+\} spec\_mcs\_lock\_t;\\
+
+\textbf{struct} \{\\
+        ~~~~mcs\_lock\_t        mcs;\\
+        ~~~~\textbf{uint8\_t} mode;\\
+       ~~~~\textbf{char} padding[];\\
+\} locklib\_mutex\_t;\\
+
+\textbf{int} locklib\_mutex\_lock~(locklib\_mutex\_t ~*mutex, \textbf{uint8\_t} mode)\{\\
+        ~~~~spec\_mcs\_lock\_t~ *lock ~= ~(spec\_mcs\_lock\_t ~*) ~mutex;\\
+        ~~~~\textbf{uint32\_t} reason = 0;\\
+
+speculative\_path:\\
+        ~~~~XBEGIN(fallback\_path, reason);\\
+        ~~~~\textbf{if}~ (lock->lock) ~XABORT(1); \\
+        ~~~~~~~~\textbf{return} 0;\\
+
+fallback\_path:\\
+        ~~~~retries++;\\
+        ~~~~\textbf{while}~ (lock->lock)\\
+                ~~~~~~~~cpu\_relax();\\
+        ~~~~\textbf{if} (retries < MAX\_RETRIES)\\
+                ~~~~~~~~\textbf{goto} speculative\_path;\\
+
+        \tcc{标准方式申请锁}\ 
+        ~~~~my\_node.locked = true;\\
+        ~~~~qnode\_t *prev = \_\_sync\_lock\_TAS(\&lock->lock, \&my\_node);\\
+        ~~~~\textbf{if} ~(unlikely(prev != NULL)) \{\\
+                ~~~~~~~~prev->next = \&my\_node;\\
+                ~~~~~~~~\textbf{while}~ (my\_node.locked)\\
+                        ~~~~~~~~~~~~cpu\_relax();\\
+        ~~~~\}\\
+        ~~~~mutex->mode = mode;\\
+        ~~~~\textbf{return} 0; \\
+\}\\
+\caption{基于Intel RTM的MCS锁算法}
+\label{algo:mcs_lock}
+\end{algorithm}

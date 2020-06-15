@@ -1,0 +1,37 @@
+\contentsline {chapter}{学位论文原创性声明和学位论文版权使用授权书}{I}{Doc-Start}
+\contentsline {chapter}{摘\hskip 1em\relax 要}{II}{chapter*.1}
+\contentsline {chapter}{Abstract}{III}{chapter*.2}
+\contentsline {chapter}{插图索引}{VI}{chapter*.4}
+\contentsline {chapter}{附表索引}{VII}{chapter*.5}
+\contentsline {chapter}{\numberline {第1章\hspace {.3em}}绪\hskip 1em\relax 论}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}多核系统概述}{1}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}多核体系结构}{1}{subsection.1.1.1}
+\contentsline {section}{\numberline {1.2}选题背景与意义}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}本文主要工作}{1}{section.1.3}
+\contentsline {section}{\numberline {1.4}本文组织结构}{1}{section.1.4}
+\contentsline {chapter}{\numberline {第2章\hspace {.3em}}第二章标题}{2}{chapter.2}
+\contentsline {section}{\numberline {2.1}2.1节}{2}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}2.1.1子节}{2}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}2.1.2子节}{2}{subsection.2.1.2}
+\contentsline {section}{\numberline {2.2}2.2节}{2}{section.2.2}
+\contentsline {chapter}{\numberline {第3章\hspace {.3em}}基于多核系统的并发哈希表的评估与分析}{3}{chapter.3}
+\contentsline {section}{\numberline {3.1}实现并发哈希表的同步方法比较}{3}{section.3.1}
+\contentsline {section}{\numberline {3.2}典型的并发哈希表}{3}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}缓存行哈希表}{3}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Cuckoo哈希表}{3}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}线程扩展性}{3}{subsection.3.2.3}
+\contentsline {subsubsection}{\numberline {(1)}}{3}{subsubsection.3.2.3.1}
+\contentsline {subsubsection}{\numberline {(2)}}{3}{subsubsection.3.2.3.2}
+\contentsline {chapter}{\numberline {第4章\hspace {.3em}}章标题}{4}{chapter.4}
+\contentsline {section}{\numberline {4.1}节标题}{4}{section.4.1}
+\contentsline {chapter}{\numberline {第5章\hspace {.3em}}章标题}{5}{chapter.5}
+\contentsline {section}{\numberline {5.1}节标题}{5}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}子节标题}{5}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}最优哈希函数个数}{6}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}加锁与解锁}{6}{subsection.5.1.3}
+\contentsline {chapter}{总结与展望}{8}{chapter*.7}
+\contentsline {chapter}{参考文献}{9}{chapter*.8}
+\contentsline {chapter}{\numberline {附录 A\hspace {.3em}}读学位期间所发表的学术论文}{16}{appendix.A}
+\contentsline {chapter}{\numberline {附录 B\hspace {.3em}}读学位期间所参加的科研项目}{17}{appendix.B}
+\contentsline {chapter}{致\hskip 1em\relax 谢}{18}{appendix*.9}
+\contentsfinish 

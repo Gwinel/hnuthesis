@@ -3,6 +3,7 @@
 ## 关键文件说明
 ------------
 * `main.tex`:主文件，编译入口
+* `hnunumerical.bst`:文献格式
 * `hnuthesis.cls`:类文件，按照2017版《湖南大学研究生论文撰写规范》编制，有格式微调需求的在该文件中对应修改
 * `chapters/`:论文章节文件夹，分章有利于保持main.tex文件的整洁
 * `figures/`:插图文件夹，latex支持多种文件格式，如eps,png,jpg,pdf等

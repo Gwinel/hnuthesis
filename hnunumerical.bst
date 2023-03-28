@@ -8,10 +8,10 @@ FUNCTION {is.print.banners.to.terminal} { #1 }
 % 版本与提示信息
 %%%%%%%%%%%%%%%%
 % 版本信息
-FUNCTION{bst.file.version} { "0.1" }
-FUNCTION{bst.file.date} { "2017/08/19" }
+FUNCTION{bst.file.version} { "0.2" }
+FUNCTION{bst.file.date} { "2023/03/28" }
 FUNCTION{bst.file.website} { 
-  "https://github.com/chengchang/hnuthesis" }
+  "https://github.com/Gwinel/Latex" }
 
 % 开始提示信息
 FUNCTION {banner.message}{ 
@@ -1059,14 +1059,14 @@ FUNCTION {manual}
 FUNCTION{format.masters}
 {
 lang empty$
-{"Thesis]"}
+{"D]"}
 {school "硕士学位论文]" *}
 if$
 }
 FUNCTION{format.masters.title}
 {title empty$
 {""}
-{title ":  [" * format.masters *}
+{title " [" * format.masters *}
 if$
 }
 FUNCTION {mastersthesis}
@@ -1089,14 +1089,14 @@ FUNCTION {mastersthesis}
 FUNCTION{format.phd}
 {
 lang empty$
-{"Dissertation]"}
+{"D]"}
 {school "博士学位论文]" *}
 if$
 }
 FUNCTION{format.phd.title}
 {title empty$
 {""}
-{title ":  [" * format.phd *}
+{title " [" * format.phd *}
 if$
 }
 
